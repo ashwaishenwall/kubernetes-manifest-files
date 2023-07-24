@@ -14,3 +14,13 @@ spec:
 
   selector:
     app: wordpress
+
+---
+# create ExternalName service to connect rds
+apiVersion: v1
+kind: Service
+metadata:
+  name: rds-mysql-service
+spec:
+  type: ExternalName
+  externalName: mydbinstance.cxfcp6cl0duj.us-east-1.rds.amazonaws.com #Replace with rds endpoint
